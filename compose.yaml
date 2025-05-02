@@ -1,0 +1,28 @@
+services:
+  svc1:
+    image: srivaishnavi20/vaishu
+    ports:
+      - "8080:80"
+  svc2:
+    image: srivaishnavi20/vaishu:1.1
+    ports:
+      - "8081:5000"
+  svc3:
+    image: srivaishnavi20/vaishu:2.1
+    ports:
+      - "8082:80"
+  svc4:
+    image: srivaishnavi20/vaishu:3.1
+    ports:
+    - "8083:80"
+  svc5:
+    image: nginx
+    ports:
+    - "8084:80"
+    volumes:
+    - /home/ubuntu/app-services/ecomm:/usr/share/nginx/html
+  svc6:
+    build: ./food
+    image: srivaishnavi20/food
+    ports:
+    - "8085:80"
